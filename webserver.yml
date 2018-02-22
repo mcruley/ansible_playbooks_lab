@@ -1,0 +1,11 @@
+---
+- hosts: webserver
+  sudo: yes
+  tasks:
+    - name: install web components
+      apt: name={{item}} state=present update_cache=yes
+      with_items:
+        - HTTPD
+        - libpache2-mod-wsgi
+        - python-pip
+        - python-virtualenv
